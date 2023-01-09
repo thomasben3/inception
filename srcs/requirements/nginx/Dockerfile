@@ -1,10 +1,10 @@
 FROM	debian:buster
 
-RUN		apt update -y
-RUN		apt upgrade -y
-RUN		apt install nginx -y
+RUN		apt-get update -y
+RUN		apt-get upgrade -y
+RUN		apt-get install nginx -y
 RUN		mkdir -p /etc/nginx/ssl
-RUN		apt install OpenSSL -y
+RUN		apt-get install OpenSSL -y
 RUN		openssl req -x509 -nodes \
 		-out /etc/nginx/ssl/thbensem.crt \
 		-keyout /etc/nginx/ssl/thbensem.key \
