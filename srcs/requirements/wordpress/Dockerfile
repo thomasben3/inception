@@ -12,3 +12,8 @@ RUN		chmod +x wp-cli.phar
 RUN		mv wp-cli.phar /usr/local/bin/wp
 
 COPY	conf/www.conf	/etc/php/7.3/fpm/pool.d/www.conf
+COPY	tools/config.sh	/config.sh
+
+EXPOSE	9000
+
+ENTRYPOINT	["bash", "config.sh"]
