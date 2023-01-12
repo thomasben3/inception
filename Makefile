@@ -22,3 +22,5 @@ fclean: clean
 		sudo rm -rf $(VOLUME_PATH)/mariadb
 		sudo rm -rf $(VOLUME_PATH)/wordpress
 		sudo docker system prune -af
+
+re: fclean all
