@@ -12,10 +12,13 @@ up:
 down:
 		sudo docker-compose -f $(YML_PATH) down
 
-clean:
+stop:
+		sudo docker-compose -f $(YML_PATH) stop
+
+clean: stop
 		sudo docker-compose -f $(YML_PATH) down -v
 
 fclean: clean
-		rm -rf $(VOLUME_PATH)/mariadb
-		rm -rf $(VOLUME_PATH)/wordpress
+		sudo rm -rf $(VOLUME_PATH)/mariadb
+		sudo rm -rf $(VOLUME_PATH)/wordpress
 		sudo docker system prune -af
