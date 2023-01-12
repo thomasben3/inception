@@ -1,21 +1,21 @@
-DOCKER-COMPOSE	=	cd ./srcs && docker-compose
+YML_PATH	=	./srcs/docker-compose.yml
 VOLUME_PATH	=	/home/thbensem/data
 
 all:
 		mkdir -p $(VOLUME_PATH)/mariadb
 		mkdir -p $(VOLUME_PATH)/wordpress
-		$(DOCKER-COMPOSE) up --build
+		docker-compose -f $(YML_PATH) up --build
 
 up:
-		$(DOCKER-COMPOSE) up --build
+		docker-compose -f $(YML_PATH) up --build
 
 down:
-		$(DOCKER-COMPOSE) down
+		docker-compose -f $(YML_PATH) down
 
 clean:
-		$(DOCKER-COMPOSE) down -v
+		docker-compose -f $(YML_PATH) down -v
 
 fclean: clean
 		rm -rf $(VOLUME_PATH)/mariadb
 		rm -rf $(VOLUME_PATH)/wordpress
-		docker image prune
+		docker system prune -af
