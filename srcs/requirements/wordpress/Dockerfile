@@ -16,4 +16,4 @@ COPY	tools/config.sh	/config.sh
 
 EXPOSE	9000
 
-#ENTRYPOINT	["bash", "config.sh"]
+ENTRYPOINT	["bash", "config.sh"]
